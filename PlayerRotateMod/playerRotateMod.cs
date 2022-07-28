@@ -39,11 +39,11 @@ namespace MyProject
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    playerController.transform.Rotate(0, 0, 1);
+                    playerController.transform.Rotate(0, 0, -1);
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    playerController.transform.Rotate(0, 0, -1);
+                    playerController.transform.Rotate(0, 0, 1);
                 }
             }
 
