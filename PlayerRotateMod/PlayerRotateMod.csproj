@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>F:\THICC 100%25 STEAM BOIS\steamapps\common\ChilloutVR\Mods\</OutputPath>
+    <OutputPath>..\..\..\..\Desktop\ModOutput\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
