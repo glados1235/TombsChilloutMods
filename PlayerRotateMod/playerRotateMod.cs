@@ -12,11 +12,8 @@ namespace MyProject
         public static bool rotateToggle;
         public static GameObject playerController;
         public static float rotSpeed;
-  
-        public override void OnApplicationStart()
-        {
+        public static Quaternion SavedRot;
 
-        }
 
         public override void OnSceneWasInitialized(int buildIndex, string sceneName)
         {
@@ -24,46 +21,53 @@ namespace MyProject
             sceneName = "DontDestroyOnLoad";
             playerController = GameObject.Find("_PLAYERLOCAL");
             rotSpeed = 1f;
+
         }
+
 
         public override void OnUpdate()
         {
-            if (rotateToggle)
+            if (playerController != null)
             {
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (rotateToggle)
                 {
-                    playerController.transform.Rotate(rotSpeed, 0, 0);
+                    if (Input.GetKey(KeyCode.UpArrow))
+                    {
+                        playerController.transform.Rotate(rotSpeed, 0, 0);
+                    }
+                    if (Input.GetKey(KeyCode.DownArrow))
+                    {
+                        playerController.transform.Rotate(-rotSpeed, 0, 0);
+                    }
+                    if (Input.GetKey(KeyCode.RightArrow))
+                    {
+                        playerController.transform.Rotate(0, 0, -rotSpeed);
+                    }
+                    if (Input.GetKey(KeyCode.LeftArrow))
+                    {
+                        playerController.transform.Rotate(0, 0, rotSpeed);
+                    }
                 }
-                if (Input.GetKey(KeyCode.DownArrow))
+                else
                 {
-                    playerController.transform.Rotate(-rotSpeed, 0, 0);
+                    SavedRot = playerController.transform.localRotation;
                 }
-                if (Input.GetKey(KeyCode.RightArrow))
+
+                if (Input.GetKey(KeyCode.U))
                 {
-                    playerController.transform.Rotate(0, 0, -rotSpeed);
+                    rotSpeed += 0.02f;
                 }
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.J))
                 {
-                    playerController.transform.Rotate(0, 0, rotSpeed);
+                    rotSpeed -= 0.02f;
+                }
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                    rotSpeed = 0.8f;
+                    rotateToggle = !rotateToggle;
+                    playerController.transform.localRotation = SavedRot;
                 }
             }
-
-            if (Input.GetKey(KeyCode.U))
-            {
-                rotSpeed += 0.003f;
-            }
-            if (Input.GetKey(KeyCode.J))
-            {
-                rotSpeed -= 0.003f;
-            }
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                rotateToggle = !rotateToggle;
-                playerController.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            }
-
-
-
         }
     }
 }

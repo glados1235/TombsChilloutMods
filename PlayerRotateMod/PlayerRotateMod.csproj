@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>F:\THICC 100% STEAM BOIS\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="MelonLoader">
       <HintPath>F:\THICC 100% STEAM BOIS\steamapps\common\ChilloutVR\MelonLoader\MelonLoader.dll</HintPath>
     </Reference>
