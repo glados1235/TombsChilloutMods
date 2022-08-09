@@ -53,11 +53,11 @@ namespace MyProject
                     SavedRot = playerController.transform.localRotation;
                 }
 
-                if (Input.GetKey(KeyCode.U))
+                if (Input.GetKey(KeyCode.U) && rotSpeed <= 10000)
                 {
                     rotSpeed += 0.02f;
                 }
-                if (Input.GetKey(KeyCode.J))
+                if (Input.GetKey(KeyCode.J) && rotSpeed >= 0.8f)
                 {
                     rotSpeed -= 0.02f;
                 }
